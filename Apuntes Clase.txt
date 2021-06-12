@@ -1,0 +1,40 @@
+#To config the user
+
+$ git config --global user.name “johan7perez”
+$ git config --global user.email "johan7perez@gmail.com"
+
+#To see the current config
+$ git config --list
+
+#To see where the git configuration is stored
+$ git config --list --show-origin
+
+#To start a new empty project with git
+$ git init
+
+#To see the status of the current project
+$ git status
+
+#To add a new file/modificated file to the staging area
+$ git add
+
+#To remove a new file/modificated file from the staging area (cached, remove the file from the ram memory also)
+$ git rm --cached
+
+#To see the history of a file
+$ git show
+
+#To show the log of the commit or a file, stat is to see the changes at a bytes level
+$ git log [–stat]
+
+#To confirm the changes that we have in the staging area
+$ git commit -m “Message”
+
+#To see the differences of two files / if we do not pass any flag it will compare the current directory and the staging area
+$ git diff [commit file code] [another commit file code]
+
+#To back in the time, if it’s hard will delete everithing made, but if it’s not, will treat the file as a modificated/untracked file
+$ git reset [commit code] [–hard]
+
+#To see back in the pass and see the status of a file / for leave the file in the original state just use ‘git checkout master’
+$ git checkout [commit code] [file name]

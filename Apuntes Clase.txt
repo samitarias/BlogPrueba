@@ -38,3 +38,112 @@ $ git reset [commit code] [–hard]
 
 #To see back in the pass and see the status of a file / for leave the file in the original state just use ‘git checkout master’
 $ git checkout [commit code] [file name]
+-----------------------------------------------------------------------------------------------
+<!-- basico -->
+git init -> inicia un repositorio
+git add $nombreArchivo -> añade un archivo al repositorio local
+git add . -> añade todos los cambios al repositorio local
+git commit -m “comentario” -> ejecuta un commit
+git commit -am “comentario” -> ejecuta un commit y ejecuta el add al mismo tiempo (pero no agrega archivos nuevos, solo cambios a existentes)
+
+<!-- rollback -->
+git reset $idDeEstado --hard -> hace un rollback de un estado en repositorio local, elimina todos los commit hechos
+git reset $idDeEstado --soft -> hace un rollback de un estado en repositorio local, No elimina los commits, estos quedan guardados en repositorio local
+git checkout $idDelEstado --> hace un rollback a un estado
+
+<!-- branch -->
+git branch -> muestra todas las ramas
+git branch $nombreDeLaNuevaRama -> crea un branch nuevos
+git checkout $nombreDeBranch -> Cambia de branch
+git merch $nombreDeBranch -> fuciona dos ramas
+
+<!-- comandos para traer data del repositorio remoto -->
+git fetch -> descarga un estado del repositorio remoto al repositorio local
+git merge -> ejecuta en los archivos de un repositorio local
+git pull -> descarga un estado del repositorio remoto al repositorio local y a los archivos (osea combina un fetch y un merge)
+
+<!-- comandos para ver estados -->
+git status -> muestra el estado del commit antes de enviarse
+git log -> muestra un registro de los commits ejecutados
+-------------------------------------------------------------------------------------------------
+Ubicado dentro de un folder, se inicia el directorio de trabajo
+git init
+
+Ver el estado del folder
+git status
+
+Agregar un archivo al staging
+git add PrimerArchivo.txt
+
+Remover un archivo del staging
+git rm PrimerArchivo.txt
+
+Removerlo completamente del staging
+git rm --cached PrimerArchivo.txt
+
+Removerlo completamente del staging y el disco
+git rm --force PrimerArchivo.txt
+
+Enviarlo al master
+git commit -m "Primer commit del archivo"
+
+Ver la configuración de git
+git config
+git config --list
+git config --list --show-origin
+
+Agregar usuario y email
+
+git config --global user.name "Camilo Ortiz"
+git config --global user.email "camiloorvi@gmail.com"
+
+Ver cambios o historia de un archivo
+git log PrimerArchivo.txt
+
+Mostrar más información de las modificaciones del archivo 
+git show NOMBREARCHIVO
+
+Devolver un archivo a un punto en la historia
+- Tener mucho cuidado porque este comando borra todos los cambios adicionales que se hicieron
+git reset  -alfanumerico-   --hard o --soft
+
+Permite visualizar los bits por commit
+git log --stat
+
+Permite visualizar un archivo con la información de ese momento
+se debe tener cuidado de no hacer commit en ese momento,
+porque se perderia la información
+git checkout -alfanumerico- NOMBREARCHIVO
+
+si quiero volver al archivo
+git checkout master NOMBREARCHIVO
+------------------------------------------------------------------------------------------------
+**git init: **iniciar una carpeta como repo
+
+**git add “nombre del Archivo”/ git add . ** : agregar archivos que se encuentran en el repositorio, pero no se estan trackeando. (Sin este comando git no va a trackear el archivo. Una vez que se aplica este comando los archivos entran a un estado denominado “staging”.
+
+git rm –cached “nombre del archivo: Mueve el archivos al estado sin trackear.
+
+git commit -m “mensaje del commit para saber de que se trata el comit”: con este comando se agregan los cambios a la rama master.
+
+git log: muestra el historial de cambios del repositorio
+
+git config --list: muestra la información de configuración del repo
+
+git config --global user.name “nombre de la persona”: configura el repo local para que se sepa quien hace los cambios.
+
+git config --global user.email “email”: configura el email del usuario
+
+git show “nombre del archivo”: mira los cambios de un archivo entre lo que se modifica y lo que se incluye
+
+git diff “codigo hexa decimal del commit mas viejo” “codigo hexadecimal mas reciente” Compara commit.
+
+git diff: puede ver los cambios
+
+git reset “codigo del commit al que queremos volver” –hard/–soft: sirve para volver a una version de commit que teniamos anterior.
+
+git log –stat: visualizar la información de los cambios de manera especifica.
+
+git checkout “codigo hexa del commit 1” “ nombre del archivo”: trae lo Viejo a la version actual
+
+git checkout master “nombre del archivo”: trae el master.
